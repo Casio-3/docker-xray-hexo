@@ -1,6 +1,6 @@
 #!/bin/sh
 
-cd /var/www && git pull
+cd /var/www/hexo && git pull
 
 curtime=`date +"%Y%m%d%H%M%S"`
 

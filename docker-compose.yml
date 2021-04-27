@@ -33,7 +33,8 @@ services:
             - dockernet
 
     webhook:
-      image: 
+      image: casio3/webhook
+      container_name: webhook
       volumes: 
           - ./webhook:/var/webhook
           - ./nginx/www:/var/www
