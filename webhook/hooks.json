@@ -1,0 +1,11 @@
+[
+  {
+    "id": "redeploy-webhook",
+    "execute-command": "/var/webhook/redeploy.sh",
+    "command-working-directory": "/var/webhook",
+    "trigger-rules":
+    {
+
+    }
+  }
+]
