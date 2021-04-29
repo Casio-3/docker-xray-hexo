@@ -1,6 +1,10 @@
 # docker-xray-hexo
 Docker-compose for Xray-core and Hexo Blog with webhook.
 
+Aim：
+
+Hexo **博客**挂到自己的域名上 + **梯子** （外网 VPS ）
+
 ## Intro
 
 通过 Docker-compose 简易部署 [Xray-core](https://github.com/XTLS/Xray-core) 和 Web 服务（Hexo 博客的 webhook 实现）
@@ -28,12 +32,13 @@ Docker-compose for Xray-core and Hexo Blog with webhook.
 │   │   └── yourdomain.com.log
 │   └── www
 │       └── hexo
-│           └── index.html
+│           ├── index.html
 |           └── *
 ├── README.md
 ├── webhook
 │   ├── hooks.json
-│   └── redeploy.sh
+│   ├── redeploy.sh
+│   └── git.log
 └── xray
     ├── config
     │   └── config.json
@@ -42,7 +47,11 @@ Docker-compose for Xray-core and Hexo Blog with webhook.
 
 
 
-目前还未达到预期效果，测试只能实现静态网页呈现。
+目前进展，
+
+- [x] Nginx 起 Web 服务
+- [x] webhook 更新 blog
+- [ ] Xray 通网
 
 
 
@@ -56,7 +65,33 @@ Docker-compose for Xray-core and Hexo Blog with webhook.
 - nginx 的 default.conf 需结合网站配置
 - hexo 目录名可能会调整（直接 `git pull` 而不改名的话），需对应修改 webhook
 - xray 配置自行参考
-- 有些非配置目录是在运行后挂载生成的
+- 有些非配置目录是在挂载运行后生成的
+
+
+
+## Logs
+
+webhook 踩坑：
+
+- redeploy.sh 需要给予执行权限
+
+  遇到的报错：
+
+  ```plain
+  Error occurred while executing the hook's command. Please check your logs for more details.
+  ```
+
+- redeploy.sh 带了Windows换行符
+
+  遇到的报错：
+
+  ```plain
+  /bin/sh^M: bad interpreter: No such file or directory
+  ```
+
+- webhook 配置 match 时的一些困难
+
+
 
 ## Thanks
 

@@ -2,6 +2,25 @@
   {
     "id": "redeploy-webhook",
     "execute-command": "/var/webhook/redeploy.sh",
-    "command-working-directory": "/var/webhook"
+    "command-working-directory": "/var/webhook",
+    "include-command-output-in-response": true,
+    "trigger-rule":
+    {
+      "and":
+      [
+        {
+          "match":
+          {
+            "type": "payload-hmac-sha256",
+            "secret": "SECRET-HERE",
+            "parameter":
+            {
+              "source": "header",
+              "name": "X-Hub-Signature-256"
+            }
+          }
+        }
+      ]
+    }
   }
 ]
