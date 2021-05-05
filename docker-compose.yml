@@ -33,13 +33,16 @@ services:
             - dockernet
 
     webhook:
-      image: casio3/webhook
-      container_name: webhook
-      volumes: 
-          - ./webhook:/var/webhook
-          - ./nginx/www:/var/www
-      ports:
-          - 9000:9000
+        image: casio3/webhook
+        container_name: webhook
+        restart: always
+        environment: 
+            TZ: Asia/Shanghai
+        volumes: 
+            - ./webhook:/var/webhook
+            - ./nginx/www:/var/www
+        ports:
+            - 9000:9000
 
 networks:
     dockernet:

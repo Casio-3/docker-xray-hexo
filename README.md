@@ -3,7 +3,7 @@ Docker-compose for Xray-core and Hexo Blog with webhook.
 
 Aim：
 
-Hexo **博客**挂到自己的域名上 + **梯子** （外网 VPS ）
+Hexo **博客**挂到自己的域名上 + **梯子**
 
 ## Intro
 
@@ -43,6 +43,8 @@ Hexo **博客**挂到自己的域名上 + **梯子** （外网 VPS ）
     ├── config
     │   └── config.json
     └── logs
+        ├── access.log
+        └── error.log
 ```
 
 
@@ -51,7 +53,7 @@ Hexo **博客**挂到自己的域名上 + **梯子** （外网 VPS ）
 
 - [x] Nginx 起 Web 服务
 - [x] webhook 更新 blog
-- [ ] Xray 通网
+- [x] Xray 通网
 
 
 
@@ -71,7 +73,7 @@ Hexo **博客**挂到自己的域名上 + **梯子** （外网 VPS ）
 
 ## Logs
 
-webhook 踩坑：
+**Webhook** 踩坑：
 
 - redeploy.sh 需要给予执行权限
 
@@ -91,7 +93,15 @@ webhook 踩坑：
 
 - webhook 配置 match 时的一些困难
 
+**Xray** ：
 
+挺怪的，Xray 最后通网的原因是因为我在客户端填上了伪装域名这一栏，
+
+~~喜闻乐见~~的 503 和 `io:read write on closed pipe` 终于没了
+
+然后发现我地址填 ip 的时候需要填伪装域名才不报 503，
+
+地址直接填域名的话就好了( •̀ ω •́ )y
 
 ## Thanks
 
