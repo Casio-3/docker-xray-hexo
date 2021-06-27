@@ -103,6 +103,10 @@ Hexo **博客**挂到自己的域名上 + **梯子**
 
 地址直接填域名的话就好了( •̀ ω •́ )y
 
+## Pics
+
+![image-20210628001329324](https://i.loli.net/2021/06/28/NjdYh92pItFWlLS.png)
+
 ## Thanks
 
 https://github.com/Nativu5/docker-xray-web 
