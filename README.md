@@ -3,7 +3,7 @@ Docker-compose for Xray-core and Hexo Blog with webhook.
 
 Aim：
 
-Hexo **博客**挂到自己的域名上 + **梯子**
+Hexo **博客**拉取到自己的 VPS 上 + **梯子**
 
 ## Intro
 
